@@ -10,6 +10,9 @@ const Tasks = () => {
   const [editingTask, setEditingTask] = useState(null);
 
   useEffect(() => {
+
+       console.log('useEffect running');
+  console.log('user:', user);
     const fetchTasks = async () => {
       try {
         const response = await axiosInstance.get('/api/tasks', {
@@ -17,7 +20,7 @@ const Tasks = () => {
         });
         setTasks(response.data);
       } catch (error) {
-        alert('Failed to fetch tasks.');
+        alert('You have no Flights available for tracking');
       }
     };
 
