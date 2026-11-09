@@ -7,13 +7,28 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [emailError, setEmailError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+      if(!formData.email || !formData.password)
+      {
+        alert('Please enter email id and password');
+        return;
+      }
+      //Code to validate email id
+      if(!formData.email.includes('@') || !formData.email.includes('.'))
+      {
+        setEmailError('Please enter valid email address');
+        return;
+      }
+      setEmailError('');
+      
+
     try {
       const response = await axiosInstance.post('/api/auth/login', formData);
       login(response.data);
-      navigate('/tasks');
+      navigate('/homepage');
     } catch (error) {
       alert('Login failed. Please try again.');
     }
@@ -22,14 +37,17 @@ const Login = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <form onSubmit={handleSubmit} className="bg-white p-6 shadow-md rounded">
+        <h1 className="text-2xl font-bold mb-4 text-center">Welcone To Flight Booking Tracker!</h1>
         <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
         <input
-          type="email"
+          type="text"
           placeholder="Email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           className="w-full mb-4 p-2 border rounded"
         />
+        {emailError && (<p className="text-red-500 text-sm mb-4">{emailError}</p>)
+        }
         <input
           type="password"
           placeholder="Password"
