@@ -28,6 +28,8 @@ const Login = () => {
     try {
       const response = await axiosInstance.post('/api/auth/login', formData);
       login(response.data);
+      console.log("Login Page");
+      console.log(response.data);
       navigate('/homepage');
     } catch (error) {
       alert('Login failed. Please try again.');

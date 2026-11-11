@@ -14,7 +14,7 @@ const HomePage = () => {
         
     const fetchTasks = async () => {
       try {
-        const response = await axiosInstance.get('/api/tasks', {
+        const response = await axiosInstance.get('/api/flights', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         //setTasks(response.data);

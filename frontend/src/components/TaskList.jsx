@@ -5,6 +5,8 @@ const TaskList = ({ tasks, setTasks, setEditingTask }) => {
   const { user } = useAuth();
 
   const handleDelete = async (taskId) => {
+    console.log("Inside delete");
+    console.log(taskId);
     try {
       await axiosInstance.delete(`/api/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${user.token}` },
