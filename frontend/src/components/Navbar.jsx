@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const isAdmin = user?.email === 'admin@tmail.com';
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -16,8 +17,11 @@ const Navbar = () => {
       <div>
         {user ? (
           <>
-            <Link to="/homepage" className="mr-4">Home</Link>
-            <Link to="/tasks" className="mr-4">Flights</Link>
+            {/* <Link to="/homepage" className="mr-4">Home</Link> */}
+            <Link to={isAdmin ? "/adminpage" : "/homepage"} className="mr-4"> Home </Link>
+            {/* <Link to="/tasks" className="mr-4">Flights</Link> */}
+            {!isAdmin && (<Link to="/tasks" className="mr-4">Flights</Link>)}
+
             <Link to="/profile" className="mr-4">Profile</Link>
             
             <button
