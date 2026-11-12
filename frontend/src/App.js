@@ -5,8 +5,9 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
 import HomePage from './pages/HomePage';
-import AdminPage from './pages/AdminPage';
+import ManageUsers from './pages/ManageUsers';
 import AdminHomePage from './pages/AdminHomePage';
+import ManageFlights from './pages/ManageFlights';
 
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/homepage" element={<HomePage />} />
-        <Route path="/adminpage" element={<AdminPage />} />
+        <Route path="/manageuser" element={<ManageUsers />} />
         <Route path="/adminhomepage" element={<AdminHomePage />} />
+        <Route path="/manageflights" element={<ManageFlights />} />
       </Routes>
     </Router>
   );

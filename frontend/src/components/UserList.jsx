@@ -31,12 +31,12 @@ const UserList = ({ users, setUsers, setEditingUser }) => {
             >
               Edit
             </button>
-            {/* <button
+            <button
               onClick={() => handleDelete(user._id)}
               className="bg-red-500 text-white px-4 py-2 rounded"
             >
               Delete
-            </button> */}
+            </button>
           </div>
         </div>
       ))}

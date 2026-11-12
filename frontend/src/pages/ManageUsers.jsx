@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import UserList from '../components/UserList';
 import EditUserForm from '../components/EditUserForm';
 
-const AdminPage = () => {
+const ManageUsers = () => {
   const { user } = useAuth();
   const [users, setUsers] = useState([]);
 
@@ -49,4 +49,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default ManageUsers;

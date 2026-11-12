@@ -50,6 +50,13 @@ res.status(500).json({ message: error.message });
 };
 
 
+const getAllFlights = async (req, res) => {
+try {
+const flights = await Flight.find();
+res.json(flights);
+} catch (error) {
+res.status(500).json({ message: error.message });
+}
+};
 
-
-module.exports = { getFlights,addFlight,deleteFlight,updateFlight};
+module.exports = { getFlights,addFlight,deleteFlight,updateFlight,getAllFlights};
