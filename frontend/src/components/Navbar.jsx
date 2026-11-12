@@ -18,7 +18,7 @@ const Navbar = () => {
         {user ? (
           <>
             {/* <Link to="/homepage" className="mr-4">Home</Link> */}
-            <Link to={isAdmin ? "/adminpage" : "/homepage"} className="mr-4"> Home </Link>
+            <Link to={isAdmin ? "/adminhomepage" : "/homepage"} className="mr-4"> Home </Link>
             {/* <Link to="/tasks" className="mr-4">Flights</Link> */}
             {!isAdmin && (<Link to="/tasks" className="mr-4">Flights</Link>)}
 
