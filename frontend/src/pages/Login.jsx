@@ -30,7 +30,14 @@ const Login = () => {
       login(response.data);
       console.log("Login Page");
       console.log(response.data);
-      navigate('/homepage');
+      if(response.data.email === 'admin@tmail.com')
+      {
+        navigate('/adminhomepage');
+      }
+      else
+      {
+        navigate('/homepage');
+      }
     } catch (error) {
       alert('Login failed. Please try again.');
     }
