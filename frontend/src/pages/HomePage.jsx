@@ -9,7 +9,7 @@ const HomePage = () => {
 
   useEffect(() => {
         
-    const fetchTasks = async () => {
+    const fetchFlights = async () => {
       try {
         const response = await axiosInstance.get('/api/flights', {
           headers: { Authorization: `Bearer ${user.token}` },
@@ -21,10 +21,22 @@ const HomePage = () => {
       }
     };
 
-    fetchTasks();
+    fetchFlights();
   }, [user]);
 
+  
+const getFlightStatus = (flightdte) => {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const date = new Date(flightdte)
+  date.setHours(0,0,0,0);
+  return date < today ? 'Completed' : 'Scheduled';
+};
+
+
   return (
+  
+
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-20 text-center">Flight Dashboard</h1>
      
@@ -37,6 +49,7 @@ const HomePage = () => {
               <th className="border p-2">To</th>
               <th className="border p-2">Date</th>
               <th className="border p-2">Terminal</th>
+              <th className="border p-2">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +60,7 @@ const HomePage = () => {
                 <td className="border p-2">{flight.to}</td>
                 <td className="border p-2">{flight.date}</td>
                 <td className="border p-2">{flight.terminal}</td>
+                <td className="border p-2">{getFlightStatus(flight.date)}</td>
               </tr>
             ))}
           </tbody>
