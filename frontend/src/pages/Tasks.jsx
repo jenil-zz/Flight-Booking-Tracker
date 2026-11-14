@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axiosInstance from '../axiosConfig';
-import TaskForm from '../components/TaskForm';
-import TaskList from '../components/TaskList';
+
 import AddFlightForm from '../components/AddFlightForm';
 import FlightList from '../components/FlightList';
 import { useAuth } from '../context/AuthContext';
@@ -30,15 +29,7 @@ const Tasks = () => {
   }, [user]);
 
   return (
-    // <div className="container mx-auto p-6">
-    //   <TaskForm
-    //     tasks={tasks}
-    //     setTasks={setTasks}
-    //     editingTask={editingTask}
-    //     setEditingTask={setEditingTask}
-    //   />
-    //   <TaskList tasks={tasks} setTasks={setTasks} setEditingTask={setEditingTask} />
-    // </div>
+
 
     <div className="container mx-auto p-6">
       <AddFlightForm

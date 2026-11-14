@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axiosInstance from '../axiosConfig';
-import TaskForm from '../components/TaskForm';
-import TaskList from '../components/TaskList';
+
 import { useAuth } from '../context/AuthContext';
 import UserList from '../components/UserList';
 import EditUserForm from '../components/EditUserForm';
@@ -21,7 +20,7 @@ const ManageUsers = () => {
         const response = await axiosInstance.get('/api/users', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
-        //setTasks(response.data);
+     
         setUsers(response.data);
       } catch (error) {
         //alert('You have no Flights available for tracking');

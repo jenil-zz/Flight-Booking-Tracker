@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import axiosInstance from '../axiosConfig';
-import TaskForm from '../components/TaskForm';
-import TaskList from '../components/TaskList';
 import { useAuth } from '../context/AuthContext';
 
 const HomePage = () => {
   const { user } = useAuth();
   const [flights, setFlights] = useState([]);
-  const [tasks, setTasks] = useState([]);
-  const [editingTask, setEditingTask] = useState(null);
+
 
   useEffect(() => {
         
@@ -17,10 +14,9 @@ const HomePage = () => {
         const response = await axiosInstance.get('/api/flights', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
-        //setTasks(response.data);
         setFlights(response.data);
       } catch (error) {
-        //alert('You have no Flights available for tracking');
+      
         console.error(error);
       }
     };
